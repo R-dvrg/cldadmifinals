@@ -3,14 +3,15 @@ version: '3'
 services:
   
   database:
-      build: ./database
-      environment:
+    build:
+      context: ./database
+    environment:
       - MYSQL_DATABASE=mboardlogin
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=FedUlQ8Hbl5KGxeF
       - MYSQL_ROOT_PASSWORD=docker
-        volumes:
-      - ./database/mboardlogin.sql:/docker-entrypoint-initdb.d/
+      volumes:
+      - ./database/mboardlogin.sql:/docker-entrypoint-initdb.d/mboardlogin.sql
   
   php:
     build: ./
