@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  
+  database:
+      build: ./database
+      environment:
+      - MYSQL_DATABASE=mboardlogin
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=FedUlQ8Hbl5KGxeF
+      - MYSQL_ROOT_PASSWORD=docker
+        volumes:
+      - ./database/mboardlogin.sql:/docker-entrypoint-initdb.d/
+  
+  php:
+    build: ./
+    ports:
+      - '80:80'
+
